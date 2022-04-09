@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Login Page</h1>
+    <?php echo "<h1>Core PHP Echo</h1>"; ?>
+    {{ "<h1>Larave Echo without code execution</h1>" }}
+    {!! "<h1>Larave Echo with code execution</h1>" !!}
 
 </body>
 </html>

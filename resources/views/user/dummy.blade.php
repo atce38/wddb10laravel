@@ -9,6 +9,12 @@
 <body>
 
     <h1> Hello I m Dummy Page</h1>
+    <?php echo $first_heading; ?>
+    {{ $second_heading }}
+    {!! $third_heading !!}
 
+    @foreach($employees as $emp)
+    <h1>{{ $emp }}</h1>
+    @endforeach
 </body>
 </html>
