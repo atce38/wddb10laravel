@@ -23,3 +23,5 @@ Route::get('/', function () {
 Route::get('login',[FirstController::class,'first']);
 
 Route::get('home',[FirstController::class,'home']);
+
+Route::get('dashboard',[FirstController::class,'dashboard']);

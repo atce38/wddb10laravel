@@ -24,4 +24,13 @@ class FirstController extends Controller
         return view('user.dummy',compact('employees','first_heading','second_heading','third_heading'));
     }
 
+    public function dashboard()
+    {
+        $role="user";
+        // if($role =='admin')
+        return view('dashboard.index',compact('role'));
+    //     else
+    //     return abort(403,"You are not Authorized");
+     }
+
 }

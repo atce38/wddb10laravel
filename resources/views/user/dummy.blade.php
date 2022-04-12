@@ -13,7 +13,7 @@
     {{ $second_heading }}
     {!! $third_heading !!}
 
-    @foreach($employees as $emp)
+    @foreach($employees as $key=> $emp)
     <h1>{{ $emp }}</h1>
     @endforeach
 </body>
