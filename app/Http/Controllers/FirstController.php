@@ -32,5 +32,12 @@ class FirstController extends Controller
     //     else
     //     return abort(403,"You are not Authorized");
      }
+     public function slider()
+     {
+         $slides=array("https://edu.abidingtech.com/assets/images/slides/androidcourseingujranwala.png",
+        "https://edu.abidingtech.com/assets/images/slides/14229_banner%201.png",
+    "https://edu.abidingtech.com/assets/images/slides/AbidingTechComputerEducationslide2.png");
+        return view('user.slider',compact('slides'));
+     }
 
 }
