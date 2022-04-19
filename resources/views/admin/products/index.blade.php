@@ -15,41 +15,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>001</td>
-                <td>Some Name</td>
-                <td>5400</td>
-            </tr>
-            <tr>
-                <td>001</td>
-                <td>Some Name</td>
-                <td>5400</td>
-            </tr>
-            <tr>
-                <td>001</td>
-                <td>Some Name</td>
-                <td>5400</td>
-            </tr>
-            <tr>
-                <td>001</td>
-                <td>Some Name</td>
-                <td>5400</td>
-            </tr>
-            <tr>
-                <td>001</td>
-                <td>Some Name</td>
-                <td>5400</td>
-            </tr>
-            <tr>
-                <td>001</td>
-                <td>Some Name</td>
-                <td>5400</td>
-            </tr>
-            <tr>
-                <td>001</td>
-                <td>Some Name</td>
-                <td>5400</td>
-            </tr>
+            @foreach ($products as $product)
+                <tr>
+                    <td>{{ $product->id }}</td>
+                    <td>{{ $product->product_name }}</td>
+                    <td>{{ $product->product_price }}</td>
+                </tr>
+            @endforeach
+
+
         </tbody>
     </table>
 </div>

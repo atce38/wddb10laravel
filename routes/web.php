@@ -37,7 +37,7 @@ Route::get('product/{name}/price/{price}/discount/{dis?}',[ProductController::cl
 
 Route::group(['prefix'=>'admin'],function(){
     Route::group(['prefix'=>'/products'],function(){
-        Route::get('/',[AdminProductController::class,'index']);
+        Route::get('/',[AdminProductController::class,'index'])->name('product.index');
         Route::get('/create',[AdminProductController::class,'create'])->name('product.create');
         Route::post('/store',[AdminProductController::class,'store'])->name('product.store');
         Route::get('/edit',function(){

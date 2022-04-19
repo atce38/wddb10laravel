@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class AdminProductController extends Controller
 {
     public function index()
     {
-        return view('admin.products.index');
+        $products=Product::get();
+        return view('admin.products.index',compact('products'));
     }
 
     public function create()
@@ -18,9 +20,15 @@ class AdminProductController extends Controller
 
     public function store(Request $request)
     {
-        $p_name=$request->product_name;
-        $p_price=$request->product_price;
+        $product=new Product;
+        $product->product_name=$request->product_name;
+        $product->product_price=$request->product_price;
+        $product->save();
 
-        return "Product Name:".$p_name.', Price:'.$p_price;
+        // $data=$request->all();
+        // // return $data;
+        // Product::create($data);
+        return redirect()->route('product.index');
+        // return "Product Name:".$p_name.', Price:'.$p_price;
     }
 }
