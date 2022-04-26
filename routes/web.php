@@ -22,9 +22,9 @@ Route::get('/', function () {
     return redirect()->route('product',['name'=>'Samsung','price'=>54000,'dis'=>500]);
 });
 
-Route::get('login',[FirstController::class,'first']);
+// Route::get('login',[FirstController::class,'first']);
 
-Route::get('home',[FirstController::class,'home']);
+// Route::get('home',[FirstController::class,'home']);
 
 Route::get('dashboard',[FirstController::class,'dashboard']);
 
@@ -36,19 +36,14 @@ Route::get('product/{name}/price/{price}/discount/{dis?}',[ProductController::cl
 //Categories  Create/Read/Update/Delete
 
 Route::group(['prefix'=>'admin'],function(){
+
     Route::group(['prefix'=>'/products'],function(){
         Route::get('/',[AdminProductController::class,'index'])->name('product.index');
         Route::get('/create',[AdminProductController::class,'create'])->name('product.create');
         Route::post('/store',[AdminProductController::class,'store'])->name('product.store');
-        Route::get('/edit',function(){
-
-        });
-        Route::get('/update',function(){
-
-        });
-        Route::get('/delete',function(){
-
-        });
+        Route::get('/edit/{id}',[AdminProductController::class,'edit'])->name('product.edit');
+        Route::post('/update/{id}',[AdminProductController::class,'update'])->name('product.update');
+        Route::get('/delete/{id}',[AdminProductController::class,'delete'])->name('product.delete');
 
     });
 
@@ -74,3 +69,7 @@ Route::group(['prefix'=>'admin'],function(){
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
