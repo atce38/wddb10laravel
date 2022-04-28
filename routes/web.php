@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -18,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('product',['name'=>'Samsung','price'=>54000,'dis'=>500]);
-});
+Route::get('/', [CategoryController::class,'home']);
 
 // Route::get('login',[FirstController::class,'first']);
 
@@ -48,21 +47,12 @@ Route::group(['prefix'=>'admin'],function(){
     });
 
     Route::group(['prefix'=>'/categories'],function(){
-        Route::get('/',function(){
-            return "All Categories";
-        });
-        Route::get('/create',function(){
-            return "Create Product";
-        });
-        Route::get('/edit',function(){
-
-        });
-        Route::get('/update',function(){
-
-        });
-        Route::get('/delete',function(){
-
-        });
+        Route::get('/',[CategoryController::class,'index'])->name('category.index');
+        Route::get('/create',[CategoryController::class,'create'])->name('category.create');
+        Route::post('/store',[CategoryController::class,'store'])->name('category.store');
+        Route::get('/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
+        Route::post('/update/{id}',[CategoryController::class,'update'])->name('category.update');
+        Route::get('/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
 
     });
 

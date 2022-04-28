@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'city_id',
     ];
 
     /**
@@ -41,4 +42,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends=['city_name','location_name'];
+
+    public function getCityNameAttribute()
+    {
+        $city=City::find($this->city_id);
+        return $city->name;
+    }
+
+    public function getLocationNameAttribute()
+    {
+        $city=City::find($this->city_id);
+        return $city->name;
+    }
 }

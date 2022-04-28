@@ -6,6 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ Auth::user()->city_name }}</div>
                 @can('isAdmin')
                 <h1>Admin</h1>
                 <h1>User</h1>
